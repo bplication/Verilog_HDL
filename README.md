@@ -1,7 +1,7 @@
 # Verilog_HDL
 Logic design project(Baseball game)
 
-# Rules
+## Rules
 	게임의 규칙음 다음과 같다. 
 	①게임 시작시 임의의 4자리 숫자를 출제.
 	②사용자는 정답으로 추정되는 4자리의 숫자를 입력.
@@ -13,7 +13,7 @@ Logic design project(Baseball game)
 	   	    정답 : 1234 / 입력 : 9214 ⇒ 2 S / 1 B
 	⑤주어진 힌트를 바탕으로 숫자를 계속 추리하여 4자릿수를 모두 맞추면 (4 S이면) 성공.
 
-# 0SEG_DEC module
+## 0SEG_DEC module
 	segment에 표시할 수 있도록 해주는 module 이다.
 	input으로 DIGIT을 받아 output으로 segment에 넣을 수 있도록 짜주었다.
 
@@ -21,7 +21,7 @@ Logic design project(Baseball game)
 
 	segment의 dot 부분을 표시하고 싶을떄 DIGIT에 20을 더해주면 dot이 표시되도록 추가 테이블을 작성 해주었다.
 
-# DOT module
+## DOT module
 	위의 코드는 게임 결과 나타난 S와 B를 측정하여 DOT 매트릭스에 나타내는 코드이다. 
 	dot_10이 10’b1000000000일 때 첫번째 열이 Enable 되고 dot_14의 데이터가 Enable 된 열에 나타난다.
 	이를 이용하여 dot_10을 빠르게 순환 시켜 연속하여 켜져 있는 것처럼 보이게 한다. 
@@ -33,7 +33,7 @@ Logic design project(Baseball game)
 	폭죽 모양의 애니매이션은 h_state라는 reg값이 1부터 15일때까지 장면을 짜주었으며, 
 	약 0.5초에 한 상태씩 넘어가도록 만들어 연속적으로 움직이는 애니매이션 처럼 표시해주었다.
 
-# times module 
+## times module 
 	클리어 까지 시간을 측정해준다.
 	input으로 clk. reset, S 값을 받고
 	output으로 COUNT_1, COUNT_10, COUNT_M을 준다.
@@ -46,7 +46,7 @@ Logic design project(Baseball game)
 	을 넣어주어 시계가 멈추도록 하여 클리어 시간을 알 수 있게 해주었다.
 
 
-# random_number module
+## random_number module
 	임의의 4자리 숫자를 만들어주는 프로그램이다
 
 	input 으로 clk,stb,enb을 받고
@@ -59,7 +59,7 @@ Logic design project(Baseball game)
 	작위적으로 숫자를 맞추기도 불가능하고 열번 누르면 열번 다른 숫자가 나오기 떄문에 
 	임의의 네자리수가 나오는 것처럼 보인다고 생각하여 이런 방식을 사용했다.
 
-# key_in
+## key_in
 	키패드에서 키를 입력받아 세그먼트에 나타내고 하위 module random_number로 받아온 임의의 4자릿수와 비교하여 
 	S/B을 하위 module DOT를 이용하여 dot-matrix에 나타내고 시간을 측정하는 최상위 module이다. 
 
